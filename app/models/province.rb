@@ -1,4 +1,4 @@
-class Order < ActiveRecord::Base
+class Province < ActiveRecord::Base
 	def gst_rate # getter
 	   read_attribute(:gst_rate).to_f / 100
 	end
@@ -22,7 +22,6 @@ class Order < ActiveRecord::Base
 	def pst_rate=(value) #  setter
 	  write_attribute(:pst_rate, (value * 100).to_i)
 	end
-
-	has_many :items
-	has_one :customer
+	
+	has_many :customers
 end

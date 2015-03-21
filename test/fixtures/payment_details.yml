@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 1
+  card_holder_name: MyString
+  card_number_string: MyString
+  card_valid_date: MyString
+
+two:
+  customer_id: 1
+  card_holder_name: MyString
+  card_number_string: MyString
+  card_valid_date: MyString

@@ -1,0 +1,33 @@
+<%= form_for(@payment_detail) do |f| %>
+  <% if @payment_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@payment_detail.errors.count, "error") %> prohibited this payment_detail from being saved:</h2>
+
+      <ul>
+      <% @payment_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :customer_id %><br>
+    <%= f.number_field :customer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :card_holder_name %><br>
+    <%= f.text_field :card_holder_name %>
+  </div>
+  <div class="field">
+    <%= f.label :card_number_string %><br>
+    <%= f.text_field :card_number_string %>
+  </div>
+  <div class="field">
+    <%= f.label :card_valid_date %><br>
+    <%= f.text_field :card_valid_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

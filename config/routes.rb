@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :payment_details
+
+  resources :addresses
+
+  resources :provinces
+
+  resources :customers
+
   resources :orders
 
   resources :items

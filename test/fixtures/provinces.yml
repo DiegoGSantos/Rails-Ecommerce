@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  province_name: MyString
+  short_name: MyString
+  pst_rate: 1
+  gst_rate: 1
+  hst_rate: 1
+
+two:
+  province_name: MyString
+  short_name: MyString
+  pst_rate: 1
+  gst_rate: 1
+  hst_rate: 1

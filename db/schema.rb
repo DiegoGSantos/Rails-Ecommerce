@@ -11,12 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321211949) do
+ActiveRecord::Schema.define(version: 20150321220302) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "address",     limit: 255
+    t.string   "postal_code", limit: 255
+    t.string   "city",        limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "category_name", limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.integer  "province_id", limit: 4
+    t.integer  "address_id",  limit: 4
+    t.string   "first_name",  limit: 255
+    t.string   "last_name",   limit: 255
+    t.string   "email",       limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -38,6 +56,15 @@ ActiveRecord::Schema.define(version: 20150321211949) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "payment_details", force: :cascade do |t|
+    t.integer  "customer_id",        limit: 4
+    t.string   "card_holder_name",   limit: 255
+    t.string   "card_number_string", limit: 255
+    t.string   "card_valid_date",    limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.integer  "category_id",      limit: 4
     t.string   "name",             limit: 255
@@ -48,6 +75,16 @@ ActiveRecord::Schema.define(version: 20150321211949) do
     t.string   "image_url",        limit: 255
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string   "province_name", limit: 255
+    t.string   "short_name",    limit: 255
+    t.integer  "pst_rate",      limit: 4
+    t.integer  "gst_rate",      limit: 4
+    t.integer  "hst_rate",      limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end
