@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag @product.image.url() %>
+</p>
+<p>
   <strong>Category:</strong>
   <%= @product.category_id %>
 </p>

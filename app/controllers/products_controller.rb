@@ -7,6 +7,21 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def women
+    category = Category.where("category_name = 'Women'")
+    @products = Product.where(category: category)
+  end
+
+  def men
+    category = Category.where("category_name = 'Men'")
+    @products = Product.where(category: category)
+  end
+
+  def kids
+    category = Category.where("category_name = 'Kids'")
+    @products = Product.where(category: category)
+  end
+
   # GET /products/1
   # GET /products/1.json
   def show
@@ -69,6 +84,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:category_id, :name, :description, :description_long, :price, :stock_quantity, :image_url)
+      params.require(:product).permit(:category_id, :name, :description, :description_long, :price, :stock_quantity, :image_url, :image)
     end
 end

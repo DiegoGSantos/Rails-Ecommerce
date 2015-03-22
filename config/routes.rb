@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  root to: 'products#index'
+
+  get  'products/women' => 'products#women', as: 'women_product' # Show a member of products (id)
+  get  'products/men' => 'products#men', as: 'men_product'
+  get  'products/kids' => 'products#kids', as: 'kids_product'
+
+  resources :products
+
   resources :payment_details
 
   resources :addresses
@@ -13,8 +22,7 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :products
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

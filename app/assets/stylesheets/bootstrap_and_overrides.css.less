@@ -1,0 +1,90 @@
+@import "twitter/bootstrap/bootstrap";
+
+.navbar-inverse,
+.navbar-nav > li > a {
+    color: #000 !important;
+}
+
+.navbar-inverse,
+.navbar-nav > li > a:hover {
+    color: #fff !important;
+}
+
+.navbar-inverse .navbar-nav > .active > a{
+	color: #fff !important;
+}
+
+.clear{
+	clear: both;
+	height:50px;
+}
+
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #0899ae;
+  border-radius: 4px;
+}
+.breadcrumb > li {
+  display: inline-block;
+}
+.breadcrumb > li + li:before {
+  padding: 0 5px;
+  color: #fff;
+  content: "/\00a0";
+}
+.breadcrumb > .active {
+  color: #fff;
+}
+
+a {
+    color: #025c69;
+    text-decoration: none;
+}
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+}
+.navbar-inverse .navbar-brand {
+    color: #777;
+}
+.navbar-brand {
+    background-image: url("../images/logo.png");
+    background-size: 240px 56px;
+    float: left;
+    font-size: 18px;
+    height: 56px;
+    line-height: 20px;
+    margin-top: 5px;
+    padding: 15px;
+    width: 240px;
+}
+// Set the correct sprite paths
+@iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
+@iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+@fontAwesomeEotPath: font-url("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: font-url("fontawesome-webfont.eot?#iefix");
+@fontAwesomeWoffPath: font-url("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: font-url("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: font-url("fontawesome-webfont.svg#fontawesomeregular");
+
+// Font Awesome
+@import "fontawesome/font-awesome";
+
+// Glyphicons
+//@import "twitter/bootstrap/glyphicons.less";
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
+//
+// Example:
+// @link-color: #ff0000;
+
+
