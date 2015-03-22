@@ -4,7 +4,7 @@ class Province < ActiveRecord::Base
 	end
 
 	def gst_rate=(value) #  setter
-	  write_attribute(:gst_rate, (value * 100).to_i)
+	  write_attribute(:gst_rate, (value.to_f * 100).to_i)
 	end
 
 	def hst_rate # getter
@@ -12,7 +12,7 @@ class Province < ActiveRecord::Base
 	end
 
 	def hst_rate=(value) #  setter
-	  write_attribute(:hst_rate, (value * 100).to_i)
+	  write_attribute(:hst_rate, (value.to_f * 100).to_i)
 	end
 
 	def pst_rate # getter
@@ -20,7 +20,7 @@ class Province < ActiveRecord::Base
 	end
 
 	def pst_rate=(value) #  setter
-	  write_attribute(:pst_rate, (value * 100).to_i)
+	  write_attribute(:pst_rate, (value.to_f * 100).to_i)
 	end
 	
 	has_many :customers
