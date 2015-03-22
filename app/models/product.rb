@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
 	end
 
 	def price=(value) #  setter
-	  write_attribute(:price, (value * 100).to_i)
+	  write_attribute(:price, (value.to_f * 100).to_i)
 	end
 
 	has_attached_file :image
