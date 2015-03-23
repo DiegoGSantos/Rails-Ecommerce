@@ -16,10 +16,13 @@
   </li>
 <% end %> 
 
+<% content_for :top_category_description do %> 
+  <%= render partial: "top_description", locals: { category: 'All', 
+                           description: 'All different styles' }%>
+ <% end %> 
+
 <%= render @products %>
 
-
-<%= render partial: 'form', locals: { button_text: 'Update Product!' } %>
 
 
 
