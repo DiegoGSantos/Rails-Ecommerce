@@ -24,25 +24,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-
-                        <a href="about.html">About</a>
-                    </li>
-                    <li class="active">
-                        <%= link_to 'Women', women_product_path %>
-                    </li>
-                    <li>
-                        <%= link_to 'Men', men_product_path %>
-                    </li>
-                    <li>
-                        <%= link_to 'Kids', kids_product_path %>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
+                    <%= yield :top_menu %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
+            
         </div>
         <!-- /.container -->
     </nav>
@@ -54,16 +40,7 @@
 
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Women
-                    <small>For all different women's styles </small>
-                </h1>
-                <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a>
-                    </li>
-                    <li class="active">Women</li>
-                </ol>
-            </div>
+            <%= yield :top_category_description %>
         </div>
         <div class="row">
             <div class="col-lg-12">

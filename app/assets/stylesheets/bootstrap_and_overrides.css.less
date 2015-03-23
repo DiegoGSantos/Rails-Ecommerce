@@ -1,5 +1,8 @@
 @import "twitter/bootstrap/bootstrap";
-
+a{
+  text-decoration: none !important;
+  text-transform: capitalize !important;
+}
 .navbar-inverse,
 .navbar-nav > li > a {
     color: #000 !important;
@@ -20,11 +23,12 @@
 }
 
 .breadcrumb {
-  padding: 8px 15px;
+  padding: 12px 15px !important;
   margin-bottom: 20px;
   list-style: none;
   background-color: #0899ae;
   border-radius: 4px;
+  text-transform: capitalize !important;
 }
 .breadcrumb > li {
   display: inline-block;
@@ -39,7 +43,7 @@
 }
 
 a {
-    color: #025c69;
+    color: #025c69 !important;
     text-decoration: none;
 }
 
@@ -59,6 +63,23 @@ a {
     padding: 15px;
     width: 240px;
 }
+
+.btn-primary {
+    background-color: #0899ae;
+    border-color: #0899ae;
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #3071a9;
+  border-color: #285e8e;
+}
+
 // Set the correct sprite paths
 @iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
 @iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
