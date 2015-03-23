@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users, ActiveAdmin::Devise.config
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  devise_for :users
   root to: 'products#index'
 
   get  'products/women' => 'products#women', as: 'women_product' # Show a member of products (id)

@@ -10,6 +10,9 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
+gem 'devise'
+
+gem 'activeadmin'
 #Bootstrap gems
 gem "therubyracer"
 gem "less-rails"
@@ -30,10 +33,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "paperclip", "~> 4.2"
-
-gem 'activeadmin', '~> 1.0.0.pre1'
-
-gem 'devise', '~> 3.4.0'   # or later# Use ActiveModel has_secure_password
+# Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server

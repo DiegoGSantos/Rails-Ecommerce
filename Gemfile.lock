@@ -226,10 +226,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activeadmin (~> 1.0.0.pre1)
+  activeadmin
   byebug
   coffee-rails (~> 4.1.0)
-  devise (~> 3.4.0)
+  devise
   jbuilder (~> 2.0)
   jquery-rails
   less-rails
