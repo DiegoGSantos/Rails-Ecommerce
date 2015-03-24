@@ -4,6 +4,14 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+
+    if current_user
+      @products = Product.all
+   else
+    @products = Product.all
+     redirect_to new_user_session_path, notice: 'You are not logged in.'
+   end
+
     @products = Product.all
   end
 

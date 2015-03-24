@@ -7,7 +7,7 @@ class AboutsController < InheritedResources::Base
   private
 
     def about_params
-      params.require(:about).permit(:title, :content)
+      params.require(:about).permit(:title, :content, :image)
     end
 end
 
