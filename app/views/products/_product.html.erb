@@ -6,12 +6,23 @@
           <br>
           <small><%= product.description %></small>
       </h3>
-      <p>
+      <h4>
         <%= number_to_currency(product.price) %> 
-      </p> 
+      </h4> 
       <p>
-        <button type="submit" class="btn btn-primary">Add to Cart</button>
+        <% if $redis.sismember "cart#{current_user.id}", product.id %>
+          <% action = "Remove from Cart"%>
+          <% link = _remove_from_cart_path(product) %>
+        <% else %>
+          <% action = "Add to Cart" %>
+          <% link = add_to_cart_path(product) %>
+        <%end%>
+
+        <%=button_to action, link%>
+
       </p>
     </div>
   </div>
 </div>
+
+

@@ -1,5 +1,26 @@
-<h2>Log in</h2>
+<% content_for :top_menu do %> 
+  <li>
+    <%= link_to 'About', abouts_path %>
+  </li>
+  <li>
+    <%= link_to 'Women', women_product_path %>
+  </li>
+  <li>
+    <%= link_to 'Men', men_product_path %>
+  </li>
+  <li>
+    <%= link_to 'Kids', kids_product_path %>
+  </li>
+  <li>
+    <a href="contact.html">Contact</a>
+  </li>
+<% end %> 
 
+<% content_for :top_category_description do %> 
+  <%= render partial: "top_description", locals: { category: 'Log in', 
+                           description: 'Enter into the system' }%>
+ <% end %> 
+<div class="col-md-6">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -19,8 +40,10 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= button_tag "Log in", class: "btn btn-primary" %>
   </div>
 <% end %>
+<br/>
+  <%= render "devise/shared/links" %>
 
-<%= render "devise/shared/links" %>
+</div>

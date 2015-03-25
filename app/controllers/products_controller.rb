@@ -4,14 +4,6 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-
-    if current_user
-      @products = Product.all
-   else
-    @products = Product.all
-     redirect_to new_user_session_path, notice: 'You are not logged in.'
-   end
-
     @products = Product.all
   end
 
@@ -33,8 +25,16 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    
   end
 
+  def cart_action(current_user_id)
+    if $redis.sismember "cart#{current_user_id}", id
+      "Remove from"
+    else
+      "Add to"
+    end
+  end
   # GET /products/new
   def new
     @product = Product.new

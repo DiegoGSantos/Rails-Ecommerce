@@ -1,7 +1,3 @@
-<div class="col-lg-12">
-    <h2 class="page-header" id="product">Products</h2>
-</div>  
-
 <% content_for :top_menu do %> 
   <li>
     <%= link_to 'About', abouts_path %>
@@ -24,15 +20,6 @@
   <%= render partial: "top_description", locals: { category: 'All', 
                            description: 'All different styles' }%>
  <% end %> 
-
- <ul class="right">
-  <%if signed_in?%>
-    <li><%=link_to current_user.email, edit_user_registration_path%></li>
-    <li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
-  <%else%>
-    <li><%=link_to "Register", new_user_registration_path%></li>
-    <li><%=link_to "Login", new_user_session_path%></li>
-  <%end%>
 
 <%= render @products %>
 

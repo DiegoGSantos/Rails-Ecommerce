@@ -84,6 +84,55 @@ a {
   text-align: justify;
 }
 
+#top_bar{
+  background-color: #000;
+  height: 85px;
+  position:fixed;
+  left: 0px;
+  top:0px;
+  width: 100%;
+  z-index: 9;
+}
+
+#top_bar li i{
+  color: #fff;
+  font-size: 25px;
+}
+#top_bar li a{
+  color: #fff !important;
+  font-size: 15px;
+}
+#top_bar li span{
+  color: #fff;
+  font-size: 20px;
+}
+#top_bar li{
+  float: right;
+  list-style: none;
+  padding-right: 20px;
+  padding-top: 8px;
+  font-size: 20px;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 130px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  padding: 7px 10px;
+  margin-top: 18px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
 // Set the correct sprite paths
 @iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
 @iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
@@ -99,7 +148,7 @@ a {
 @import "fontawesome/font-awesome";
 
 // Glyphicons
-//@import "twitter/bootstrap/glyphicons.less";
+@import "twitter/bootstrap/glyphicons.less";
 
 // Your custom LESS stylesheets goes here
 //

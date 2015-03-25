@@ -1,4 +1,27 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<% content_for :top_menu do %> 
+  <li>
+    <%= link_to 'About', abouts_path %>
+  </li>
+  <li>
+    <%= link_to 'Women', women_product_path %>
+  </li>
+  <li>
+    <%= link_to 'Men', men_product_path %>
+  </li>
+  <li>
+    <%= link_to 'Kids', kids_product_path %>
+  </li>
+  <li>
+    <a href="contact.html">Contact</a>
+  </li>
+<% end %> 
+
+<% content_for :top_category_description do %> 
+  <%= render partial: "top_description", locals: { category: 'Edit', 
+                           description: 'Update your informations' }%>
+<% end %> 
+
+<div class="col-md-6">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -28,12 +51,14 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= button_tag "Update", class: "btn btn-primary" %>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+</div>

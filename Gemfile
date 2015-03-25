@@ -17,6 +17,8 @@ gem 'activeadmin'
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem 'font-awesome-rails', '~> 4.3.0.0'
+
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
@@ -35,6 +37,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "paperclip", "~> 4.2"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'redis', '~> 3.0.1'
+gem 'hiredis', '~> 0.4.5'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

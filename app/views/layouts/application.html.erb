@@ -7,7 +7,46 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="top_bar">
 
+  <%if signed_in?%>
+    
+    <li>
+        <%= link_to  destroy_user_session_path, method: :delete  do%>
+            <i class="fa fa-sign-out"></i>
+        <%end%>
+    </li>
+    <li>
+        <%= link_to edit_user_registration_path do%>
+            <i class="fa fa-user"></i>
+        <%end%>
+    </li>
+    <li>
+        <%= link_to cart_path do%>
+            <i class="fa fa-shopping-cart"></i>
+            <span>(<span class="cart-count"><%=current_user.cart_count%></span>)</span>
+        <%end%>
+    </li>
+  <%else%>
+    <li>
+        <%=link_to new_user_registration_path, alt:"Register" do%>
+            <i class="fa fa-plus-square-o"></i>
+        <%end%>
+    </li>
+    <li>
+        <%=link_to new_user_session_path do%>
+            <i class="fa fa-sign-in"></i>
+        <%end%>
+    </li>
+    <li>
+        <%= link_to cart_path do%>
+            <i class="fa fa-shopping-cart"></i>
+            <span>(<span class="cart-count">0</span>)</span>
+        <%end%>
+    </li>
+  <%end%>
+    
+</div>
 <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -33,9 +72,7 @@
         <!-- /.container -->
     </nav>
 <!-- Page Content -->
-	<div class="clear">
-		
-	</div>
+	
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
