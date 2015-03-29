@@ -24,7 +24,11 @@
     <li>
         <%= link_to cart_path do%>
             <i class="fa fa-shopping-cart"></i>
-            <span>(<span class="cart-count"><%=current_user.cart_count%></span>)</span>
+            <%if !current_user.nil? %>
+                <span>(<span class="cart-count"><%=current_user.cart_count%></span>)</span>
+            <%else%>
+                <span>(<span class="cart-count">0</span>)</span>
+            <%end%>
         <%end%>
     </li>
   <%else%>

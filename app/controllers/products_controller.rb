@@ -4,22 +4,22 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.all.order(created_at: :desc)
   end
 
   def women
     category = Category.where("category_name = 'Women'")
-    @products = Product.where(category: category)
+    @products = Product.where(category: category).order(created_at: :desc)
   end
 
   def men
     category = Category.where("category_name = 'Men'")
-    @products = Product.where(category: category)
+    @products = Product.where(category: category).order(created_at: :desc)
   end
 
   def kids
     category = Category.where("category_name = 'Kids'")
-    @products = Product.where(category: category)
+    @products = Product.where(category: category).order(created_at: :desc)
   end
 
   # GET /products/1
@@ -28,13 +28,6 @@ class ProductsController < ApplicationController
     
   end
 
-  def cart_action(current_user_id)
-    if $redis.sismember "cart#{current_user_id}", id
-      "Remove from"
-    else
-      "Add to"
-    end
-  end
   # GET /products/new
   def new
     @product = Product.new

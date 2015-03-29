@@ -1,6 +1,6 @@
 <div class="col-md-4 text-center">
   <div class="thumbnail">
-    <%= image_tag product.image.url(), class: "img-responsive" %>
+    <%=link_to (image_tag product.image.url(), class: "img-responsive"), product %>
     <div class="caption">
       <h3><%= product.name %>
           <br>
@@ -10,6 +10,7 @@
         <%= number_to_currency(product.price) %> 
       </h4> 
       <p>
+      <%if signed_in? && !product.nil? && !current_user.nil?%>
         <% if $redis.sismember "cart#{current_user.id}", product.id %>
           <% action = "Remove from Cart"%>
           <% link = _remove_from_cart_path(product) %>
@@ -19,7 +20,11 @@
         <%end%>
 
         <%=button_to action, link%>
-
+      <% else %>
+        <% action = "Add to Cart" %>
+        <% link = add_to_cart_path(product) %>
+        <%=button_to action, link%>
+      <% end %>
       </p>
     </div>
   </div>

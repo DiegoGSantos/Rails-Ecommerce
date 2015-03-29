@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :contacts
+
   resource :cart, only: [:show] do
     post 'add/:product_id', to: 'carts#add', as: :add_to
     get 'remove/:product_id', to: 'carts#remove', as: :remove_from
