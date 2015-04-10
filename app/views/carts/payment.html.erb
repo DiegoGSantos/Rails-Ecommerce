@@ -1,0 +1,44 @@
+<% content_for :top_menu do %> 
+  <li>
+    <%= link_to 'About', abouts_path %>
+  </li>
+  <li>
+    <%= link_to 'Women', women_product_path %>
+  </li>
+  <li>
+    <%= link_to 'Men', men_product_path %>
+  </li>
+  <li>
+    <%= link_to 'Kids', kids_product_path %>
+  </li>
+  <li>
+    <a href="contact.html">Contact</a>
+  </li>
+<% end %> 
+
+<% content_for :top_category_description do %> 
+  <%= render partial: "top_description", locals: { category: 'Payment', 
+                           description: 'Confirm your payment details and finish' }%>
+ <% end %> 
+
+<div class="col-md-4 text-center">
+<%= form_for(@payment_detail) do |f| %>
+
+  <div class="field">
+    <%= f.label :card_holder_name %><br>
+    <%= f.text_field :card_holder_name %>
+  </div>
+  <div class="field">
+    <%= f.label :card_number_string %><br>
+    <%= f.text_field :card_number_string %>
+  </div>
+  <div class="field">
+    <%= f.label :card_valid_date %><br>
+    <%= f.text_field :card_valid_date %>
+  </div>
+<% end %>
+</div>
+
+<div class="col-lg-12">
+  <%=link_to (button_tag "Place Order", { class: "btn btn-primary", id: "btn_place_order"}), checkout_path%>
+</div>

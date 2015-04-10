@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     post 'remove/:product_id', to: 'carts#remove', as: :_remove_from
   end
 
+  get  'cart/checkout' => 'carts#checkout', as: :checkout
+  get  'cart/payment' => 'carts#payment', as: :payment 
+
   resources :abouts
 
   devise_for :admin_users, ActiveAdmin::Devise.config

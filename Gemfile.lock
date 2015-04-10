@@ -238,6 +238,7 @@ DEPENDENCIES
   hiredis (~> 0.4.5)
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   less-rails
   mysql2
   paperclip (~> 4.2)
