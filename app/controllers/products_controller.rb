@@ -22,6 +22,10 @@ class ProductsController < ApplicationController
     @products = Product.where(category: category).order(created_at: :desc)
   end
 
+  def search_results
+    keywords = "%" + params[:search_keywords] + "%"
+    @products = Product.where("name LIKE ?", keywords)
+  end
   # GET /products/1
   # GET /products/1.json
   def show

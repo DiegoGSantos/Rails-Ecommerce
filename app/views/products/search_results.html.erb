@@ -21,14 +21,9 @@
                            description: 'All different styles' }%>
  <% end %> 
 
-<div class="col-lg-12">
-<%= paginate @products %>
-</div>
-
 <%= render @products %>
 
-
-
-
-
-
+<%= form_tag search_results_path, method: 'get' do%>
+  <%=text_field_tag :search_keywords %>
+  <%= submit_tag "Search"%>
+<% end%>
