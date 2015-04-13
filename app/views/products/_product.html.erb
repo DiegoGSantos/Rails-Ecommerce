@@ -11,7 +11,8 @@
       </h4> 
       <p>
       <%if signed_in? && !product.nil? && !current_user.nil?%>
-        <% if $redis.sismember "cart#{current_user.id}", product.id %>
+        
+        <% if $redis.hget("cart#{current_user.id}", product.id).present? %>
           <% action = "Remove from Cart"%>
           <% link = _remove_from_cart_path(product) %>
         <% else %>
