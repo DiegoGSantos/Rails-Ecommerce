@@ -7,12 +7,18 @@
 	    </li>
 	    <li class="active"><%= category %></li>
 	    <li class="search">
-	    	<%= form_tag search_results_path, method: 'get' do%>
 	    	  <%if category == "All" %>
-			  <%=text_field_tag :search_keywords, nil, :placeholder => 'Enter search term...', :size => 10 %>
-			  <%= submit_tag "Search"%>
+	    	  	<%= form_tag search_results_path, method: 'get' do%>
+				  <%=text_field_tag :search_keywords, nil, :placeholder => 'Enter search term...', :size => 10 %>
+				  <%= submit_tag "Search"%>
+			  	<%end%>
+		  	  <%end%>
+		  	  <%if category == "Women"%>
+			  	<%= form_tag search_results_women_path, method: 'get' do%>
+				  <%=text_field_tag :search_keywords, nil, :placeholder => 'Enter search term...', :size => 10 %>
+				  <%= submit_tag "Search"%>
+			  	<%end%>
 			  <% end%>
-			<% end%>
 	    </li>
 	</ol>
   </div>

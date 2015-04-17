@@ -31,6 +31,13 @@ class ProductsController < ApplicationController
     category = Category.where("category_name = 'Women'")
     keywords = "%" + params[:search_keywords] + "%"
     @products = Product.where(category: category).where("name LIKE ?", keywords)
+    render 'products/women'
+  end
+  def search_results_men
+    category = Category.where("category_name = 'Men'")
+    keywords = "%" + params[:search_keywords] + "%"
+    @products = Product.where(category: category).where("name LIKE ?", keywords)
+
   end
   # GET /products/1
   # GET /products/1.json

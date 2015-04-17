@@ -43,6 +43,8 @@ Rails.application.routes.draw do
 
   get 'search_results_women' => 'products#search_results_women', as: 'search_results_women'
 
+  get 'search_results_men' => 'products#search_results_men', as: 'search_results_men'
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
