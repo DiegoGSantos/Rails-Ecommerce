@@ -25,6 +25,8 @@ class ProductsController < ApplicationController
     @products = Product.where("stock_quantity > 0").order(created_at: :desc).page(params[:page]).per(3)
   end
   def recent
+    @products = Product.all.order(created_at: :desc).first(3)
+    #@products = @products.page(params[:page]).per(3)
   end
   def search_results
     keywords = "%" + params[:search_keywords] + "%"

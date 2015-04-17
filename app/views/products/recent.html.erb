@@ -17,13 +17,12 @@
 <% end %> 
 
  <% content_for :top_category_description do %> 
- 	<%= render partial: "top_description", locals: { category: 'On Sale', 
- 													 description: 'Products available in stock' }%>
+ 	<%= render partial: "top_description", locals: { category: 'Recently Added', 
+ 													 description: 'New collection of the season' }%>
  <% end %> 
 
 <div class="col-lg-12">
-  <%= link_to "Recently Added", recent_added_path%>
-  <%= paginate @products %>
+  <%= link_to "On Sale", onsale_path%>
 </div>
 
  <%= render @products %>
