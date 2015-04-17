@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
     category = Category.where("category_name = 'Men'")
     keywords = "%" + params[:search_keywords] + "%"
     @products = Product.where(category: category).where("name LIKE ?", keywords)
-
+    render 'products/men'
   end
   # GET /products/1
   # GET /products/1.json
