@@ -9,35 +9,45 @@ class ProductsController < ApplicationController
 
   def women
     category = Category.where("category_name = 'Women'")
-    @products = Product.where(category: category).order(created_at: :desc)
+    @products = Product.where(category: category).order(created_at: :desc).page(params[:page]).per(3)
   end
 
   def men
     category = Category.where("category_name = 'Men'")
-    @products = Product.where(category: category).order(created_at: :desc)
+    @products = Product.where(category: category).order(created_at: :desc).page(params[:page]).per(3)
   end
 
   def kids
     category = Category.where("category_name = 'Kids'")
-    @products = Product.where(category: category).order(created_at: :desc)
+    @products = Product.where(category: category).order(created_at: :desc).page(params[:page]).per(3)
   end
-
+  def onsale
+    @products = Product.where("stock_quantity > 0").order(created_at: :desc).page(params[:page]).per(3)
+  end
+  def recent
+  end
   def search_results
     keywords = "%" + params[:search_keywords] + "%"
-    @products = Product.where("name LIKE ?", keywords)
+    @products = Product.where("name LIKE ?", keywords).page(params[:page]).per(3)
   end
 
   def search_results_women
     category = Category.where("category_name = 'Women'")
     keywords = "%" + params[:search_keywords] + "%"
-    @products = Product.where(category: category).where("name LIKE ?", keywords)
+    @products = Product.where(category: category).where("name LIKE ?", keywords).page(params[:page]).per(3)
     render 'products/women'
   end
   def search_results_men
     category = Category.where("category_name = 'Men'")
     keywords = "%" + params[:search_keywords] + "%"
-    @products = Product.where(category: category).where("name LIKE ?", keywords)
+    @products = Product.where(category: category).where("name LIKE ?", keywords).page(params[:page]).per(3)
     render 'products/men'
+  end
+  def search_results_kids
+    category = Category.where("category_name = 'Kids'")
+    keywords = "%" + params[:search_keywords] + "%"
+    @products = Product.where(category: category).where("name LIKE ?", keywords).page(params[:page]).per(3)
+    render 'products/kids'
   end
   # GET /products/1
   # GET /products/1.json

@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   get  'products/women' => 'products#women', as: 'women_product' # Show a member of products (id)
   get  'products/men' => 'products#men', as: 'men_product'
   get  'products/kids' => 'products#kids', as: 'kids_product'
+  get  'products/onsale' => 'products#onsale', as: 'onsale'
+  get  'products/recent' => 'products#recent', as: 'recent_added'
+
 
   resources :products
 
@@ -45,7 +48,7 @@ Rails.application.routes.draw do
 
   get 'search_results_men' => 'products#search_results_men', as: 'search_results_men'
 
-  
+  get 'search_results_kids' => 'products#search_results_kids', as: 'search_results_kids'  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
