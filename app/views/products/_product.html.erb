@@ -9,7 +9,7 @@
       <h4>
         <%= number_to_currency(product.price) %> 
       </h4> 
-      <p>
+      
       <%if signed_in? && !product.nil? && !current_user.nil?%>
         
         <% if $redis.hget("cart#{current_user.id}", product.id).present? %>
@@ -26,7 +26,7 @@
         <% link = add_to_cart_path(product) %>
         <%=button_to action, link%>
       <% end %>
-      </p>
+      
     </div>
   </div>
 </div>

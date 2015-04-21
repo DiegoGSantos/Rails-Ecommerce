@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get  'cart/checkout' => 'carts#checkout', as: :checkout
   get  'cart/payment' => 'carts#payment', as: :payment 
 
+  post  'cart/checkout' => 'carts#checkout', as: :checkout1
+  post  'cart/payment' => 'carts#payment', as: :payment1 
+
   resources :abouts
 
   devise_for :admin_users, ActiveAdmin::Devise.config

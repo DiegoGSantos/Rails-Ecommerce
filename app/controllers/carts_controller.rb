@@ -2,6 +2,7 @@ class CartsController < ApplicationController
   before_action :authenticate_user!
  
   def checkout
+    @provinces = Province.all
     unless current_user.customer_id.nil?
       @customer = Customer.find(current_user.customer_id)
       unless Address.where(customer: @customer)[0].nil?
@@ -46,7 +47,8 @@ class CartsController < ApplicationController
   end
  
   def remove
-    $redis.srem current_user_cart, params[:product_id]
+    # $redis.srem current_user_cart, params[:product_id]
+    $redis.hdel current_user_cart, params[:product_id]
     redirect_to cart_path
   end
 
@@ -75,6 +77,7 @@ class CartsController < ApplicationController
       @item.price = product.price
 
       @item.save
+      @customer.save
 
     end
   end

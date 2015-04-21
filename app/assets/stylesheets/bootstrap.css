@@ -127,7 +127,8 @@ select {
 button,
 html input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+#btn_place_order {
   -webkit-appearance: button;
   cursor: pointer;
 }
