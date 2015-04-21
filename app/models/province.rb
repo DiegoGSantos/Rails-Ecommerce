@@ -23,5 +23,6 @@ class Province < ActiveRecord::Base
 	  write_attribute(:pst_rate, (value * 100).to_i)
 	end
 	
+	validates :short_name, length: {is: 2}, allow_blank: true
 	has_many :customers
 end

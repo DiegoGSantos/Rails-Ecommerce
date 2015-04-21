@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
 	  write_attribute(:price, (value.to_f * 100).to_i)
 	end
 
+	validates_presence_of :name, :stock_quantity, :price
+
 	has_attached_file :image
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 	
