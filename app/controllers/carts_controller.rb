@@ -91,7 +91,8 @@ class CartsController < ApplicationController
 
       @item.save
       @customer.save
-
+      @number  = rand(100000..999999)
+      @number1 = rand(100000..999999)
     end
   end
  
