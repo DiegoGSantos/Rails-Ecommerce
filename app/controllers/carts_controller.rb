@@ -60,6 +60,11 @@ class CartsController < ApplicationController
     redirect_to cart_path
   end
 
+  def updateqty
+    $redis.hmset(current_user_cart, params[:product_id], params[:quantity])
+    redirect_to cart_path
+  end
+
   def create_order
     @customer = Customer.find(current_user.customer_id)
     @province = @customer.province

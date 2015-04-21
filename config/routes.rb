@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'remove/:product_id', to: 'carts#remove', as: :remove_from
     post 'remove/:product_id', to: 'carts#remove', as: :_remove_from
     get 'order', to: 'carts#create_order', as: :create_order
+    get 'updateqty/:product_id', to: 'carts#updateqty', as: :update_qty
   end
 
   get  'cart/checkout' => 'carts#checkout', as: :checkout

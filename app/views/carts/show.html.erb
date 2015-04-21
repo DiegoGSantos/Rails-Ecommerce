@@ -31,13 +31,10 @@
       <p> <%= product.name %> </p>
       <h4><%= number_to_currency(product.price) %></h4>
       <p>
-        <select>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
+        <%= form_tag update_qty_cart_path(product), method: 'get' do%>
+          <%=text_field_tag :quantity, $redis.hget("cart#{current_user.id}", product.id), :placeholder => '', :size => 2 %>
+          <%= submit_tag "Update"%>
+        <%end%>
       </p>
       <p>
         <%=link_to "Remove from Cart", remove_from_cart_path(product)%>
