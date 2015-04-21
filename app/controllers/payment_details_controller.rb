@@ -28,7 +28,7 @@ class PaymentDetailsController < ApplicationController
 
     respond_to do |format|
       if @payment_detail.save
-        format.html { redirect_to @payment_detail, notice: 'Payment detail was successfully created.' }
+        format.html { redirect_to checkout_path, notice: 'Payment detail was successfully created.' }
         format.json { render :show, status: :created, location: @payment_detail }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PaymentDetailsController < ApplicationController
   def update
     respond_to do |format|
       if @payment_detail.update(payment_detail_params)
-        format.html { redirect_to @payment_detail, notice: 'Payment detail was successfully updated.' }
+        format.html { redirect_to checkout_path, notice: 'Payment detail was successfully updated.' }
         format.json { render :show, status: :ok, location: @payment_detail }
       else
         format.html { render :edit }

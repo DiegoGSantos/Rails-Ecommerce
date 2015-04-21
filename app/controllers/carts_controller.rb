@@ -3,22 +3,30 @@ class CartsController < ApplicationController
  
   def checkout
     @provinces = Province.all
-    unless current_user.customer_id.nil?
+    unless Customer.find(current_user.id).nil?
       @customer = Customer.find(current_user.customer_id)
       unless Address.where(customer: @customer)[0].nil?
         @address = Address.where(customer: @customer)[0]
       else
         @address = Address.new
+        @address.customer_id = current_user.id
+        @address.save
       end
       unless PaymentDetail.where(customer: @customer)[0].nil?
         @payment_detail = PaymentDetail.where(customer: @customer)[0]
       else
         @payment_detail = PaymentDetail.new
+        @payment_detail.customer_id = current_user.id
+        @payment_detail.save
       end
     else
       @customer = Customer.new
       @address = Address.new
+      @address.customer_id = current_user.id
+      @address.save
       @payment_detail = PaymentDetail.new
+      @payment_detail.customer_id = current_user.id
+      @payment_detail.save
     end
   end
 
