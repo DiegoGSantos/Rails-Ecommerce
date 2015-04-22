@@ -87,7 +87,7 @@ class CartsController < ApplicationController
       @item.order = @order
       @item.product_id = product.id
       @item.quantity = $redis.hget(current_user_cart, product.id)
-      @item.price = product.price
+      @item.price = product.price + (product.price * (@province.gst_rate + @province.pst_rate))
 
       @item.save
       @customer.save
