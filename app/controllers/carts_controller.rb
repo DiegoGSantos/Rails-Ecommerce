@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   before_action :authenticate_user!
  
   def checkout
-    @provinces = Province.all
+    @provinces = Province.all.order(province_name: :asc)
     unless Customer.where("id = #{current_user.id}")[0].nil?
       @customer = Customer.find(current_user.customer_id)
       unless Address.where(customer: @customer)[0].nil?
